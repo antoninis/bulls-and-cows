@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Home page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal" href="#">Bulls and cows!</h5>
+    <a th:href="@{/logout}">Log out</a><br>
+</div>
+<div class="container">
+    <form method="post">
+        <h5>Let's start!</h5>
+        <a> Try to guess the number that was invented by the computer.</a><br>
+        <a> After each step you will receive info about bulls and cows for your number.</a><br>
+        <br>
+        <input type="text" name="userNumber"/><br>
+        <br>
+        <button type="submit" class="btn btn-success">Submit</button><br>
+        <br>
+        <h5>Result:</h5>
+        <div class="result"></div>
+        <td th:text="${result}"/></td>
+    </form>
+</div>
+</body>
+</html>

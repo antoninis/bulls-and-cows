@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Rating page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal" href="#">Congratulation!</h5>
+    <a th:href="@{/logout}">Log out</a><br>
+</div>
+<div class="container">
+    <h5>You guess a number!</h5>
+    <a> Current result:</a><br>
+    <a>Number =<td th:text="${number}"/></td></a>
+    <br>
+    <a>Name = [[${#httpServletRequest.remoteUser}]]</a>
+    <br>
+    <a>Steps =<td th:text="${steps}"/></td></a>
+    <br>
+    <br>
+    <h5> Result rating table</h5>
+    <table>
+        <tr>
+            <th>Player name</th>
+            <th>Steps</th>
+            <th>Attempts</th>
+            <th>Statistic</th>
+            <th></th>
+        </tr>
+        <tr th:each="user : ${users} ">
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.steps}"></td>
+            <td th:text="${user.numberAttempts}"></td>
+            <td th:text="${user.statistic}"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <a th:href="@{/}">New game</a><br>
+    <a th:href="@{/logout}">Log out</a><br>
+    <hr/>
+</div>
+</body>
+</html>
